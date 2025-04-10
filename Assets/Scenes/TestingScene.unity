@@ -2869,7 +2869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd854f7a6f018024d8e2d6f188971a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 100
+  startTime: 100
   timerText: {fileID: 511348739}
   loseScreen: {fileID: 620169486}
 --- !u!4 &1352631650

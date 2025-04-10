@@ -1350,6 +1350,7 @@ MonoBehaviour:
   playerInput: {fileID: 729964095}
   jumpValue: 7
   speedText: {fileID: 547295642}
+  maxSpeed: 0
 --- !u!54 &729964097
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1492,7 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd854f7a6f018024d8e2d6f188971a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 100
+  startTime: 100
   timerText: {fileID: 1184718490}
   loseScreen: {fileID: 1113136424}
 --- !u!4 &737578665
