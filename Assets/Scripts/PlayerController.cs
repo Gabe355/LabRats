@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void OnJump()
     {
-        int freeChance = Random.Range(1, 6);//sets a random value everytime the player jumps
+        int freeChance = Random.Range(1, 4);//sets a random value everytime the player jumps
         if (freeChance == 1)//if the random value is equal to 1 the player is freed
         {
             isTrapped = false;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             forwardMovement.y = currentVelocity.y; 
             rb.velocity = forwardMovement;
         }
-        if(playerMovement.x == 0)
+        if(playerMovement.x == 0 && !isTrapped)
         {
             BaseSpeed();
         }
@@ -127,8 +127,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("GrabTrap"))
         {
-            speed = 0;
-            turnSpeed = 0;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             isTrapped = true;
         }
         if (other.gameObject.CompareTag("GunTrap"))
@@ -165,7 +164,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator StunPlayer()
     {
         speed = 0;
-        turnSpeed = 0;  
+        turnSpeed = 0;
+        speedText.text = speed.ToString();
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         isTrapped = true;
         yield return new WaitForSeconds(3);
         BaseSpeed();
