@@ -26,14 +26,16 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerMovement;
     private bool isTrapped;
     private bool canJump;
-    private bool increasingSpeed;
- 
+    public bool increasingSpeed;
+    private Quaternion targetRotation;
+
     /// <summary>
     /// sets up player movement and rigid body
     /// </summary>
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        targetRotation = transform.rotation;
         playerInput.currentActionMap.Enable();
         canJump = true;
     }
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void OnRestart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     /// <summary>
     /// Quits game
@@ -85,8 +87,11 @@ public class PlayerController : MonoBehaviour
     {
         if (!isTrapped)
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime * playerMovement.x);
-            transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * playerMovement.z);
+            rb.angularVelocity = Vector3.up * playerMovement.z * turnSpeed * Mathf.Deg2Rad;
+            Vector3 currentVelocity = rb.velocity;
+            Vector3 forwardMovement = transform.forward * playerMovement.x * speed;
+            forwardMovement.y = currentVelocity.y; 
+            rb.velocity = forwardMovement;
         }
         if(playerMovement.x == 0)
         {
@@ -148,7 +153,7 @@ public class PlayerController : MonoBehaviour
     private void BaseSpeed()
     {
         speed = 25;
-        turnSpeed = 150;
+        turnSpeed = 200;
         speedText.text = speed.ToString();
         increasingSpeed = false;    
         StopCoroutine(increaseSpeed());
@@ -179,7 +184,7 @@ public class PlayerController : MonoBehaviour
             if (speed < maxSpeed && !isTrapped)
             {
                 speed += 1;
-                turnSpeed += 3;
+                turnSpeed += 2;
             }
             speedText.text = speed.ToString();
             yield return new WaitForSeconds(1f);
