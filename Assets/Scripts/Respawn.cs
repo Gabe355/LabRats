@@ -14,6 +14,7 @@ public class Respawn : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
     [SerializeField] private GameObject respawnPoint;
+    [SerializeField] private AudioSource deathSound;
     /// <summary>
     /// checks for player collision to respawn them
     /// </summary>
@@ -22,6 +23,7 @@ public class Respawn : MonoBehaviour
     {
         if(collision.gameObject.layer == 3)
         {
+            deathSound.Play();  
             RespawnPlayer();
         }
     }

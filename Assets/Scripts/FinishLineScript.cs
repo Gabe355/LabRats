@@ -13,6 +13,7 @@ using UnityEngine;
 public class FinishLineScript : MonoBehaviour
 {
     [SerializeField] private GameObject winBG;
+    [SerializeField] private AudioSource winSound;
     private PlayerController playerController;  
     /// <summary>
     /// sets up player controller
@@ -26,6 +27,7 @@ public class FinishLineScript : MonoBehaviour
     /// </summary>
     private void ShowPanel()
     {
+        winSound.Play();    
         winBG.SetActive(true);
         playerController.gameObject.SetActive(false);
     }
