@@ -13,15 +13,30 @@ using UnityEngine.InputSystem;
 public class PauseGame : MonoBehaviour
 {
     [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private GameObject pauseMenu;
+    private bool isPaused;
+    
     /// <summary>
     /// does nothing yet
     /// </summary>
     void Start()
     {
         playerInput.currentActionMap.Enable();
+        isPaused = false;
+        pauseMenu.SetActive(false); 
     }
     private void OnPause()
-    {
-        //Pause game
+    {   
+        if (!isPaused)
+        {
+            isPaused = !isPaused;
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(true);  
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pauseMenu.SetActive(false);          
+        }
     }
 }

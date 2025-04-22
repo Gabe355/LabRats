@@ -197,6 +197,17 @@
                 },
                 {
                     "name": "",
+                    "id": "44a34b50-4489-499b-b7d2-72d116ace37b",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9179086b-864e-45c8-9491-3122d3fc6133",
                     "path": "<Keyboard>/q",
                     "interactions": "",

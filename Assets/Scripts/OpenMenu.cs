@@ -17,6 +17,7 @@ public class OpenMenu : MonoBehaviour
     /// </summary>
     public void OpenMainMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }
