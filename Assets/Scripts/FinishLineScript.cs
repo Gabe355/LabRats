@@ -26,8 +26,7 @@ public class FinishLineScript : MonoBehaviour
     /// Sets the Win screen active
     /// </summary>
     private void ShowPanel()
-    {
-        winSound.Play();    
+    {        
         winBG.SetActive(true);
         playerController.gameObject.SetActive(false);
     }
@@ -39,6 +38,7 @@ public class FinishLineScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("FinishLine"))
         {
+            winSound.Play();
             ShowPanel();    
         }
     }
