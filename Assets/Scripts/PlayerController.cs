@@ -66,20 +66,7 @@ public class PlayerController : MonoBehaviour
         playerMovement.z = movementValue.x;
         StartCoroutine(increaseSpeed());     
     }
-    /// <summary>
-    /// Restarts Scene
-    /// </summary>
-    void OnRestart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    /// <summary>
-    /// Quits game
-    /// </summary>
-    void OnQuit()
-    {
-        Application.Quit();
-    }
+    
     /// <summary>
     /// moves the player if theyre not trapped
     /// </summary>
