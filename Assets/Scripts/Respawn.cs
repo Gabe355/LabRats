@@ -15,6 +15,11 @@ public class Respawn : MonoBehaviour
     [SerializeField] private Transform playerTransform;
     [SerializeField] private GameObject respawnPoint;
     [SerializeField] private AudioSource deathSound;
+    private PlayerController playerController;
+    private void Start()
+    {
+        playerController = GameObject.FindObjectOfType<PlayerController>(); 
+    }
     /// <summary>
     /// checks for player collision to respawn them
     /// </summary>
@@ -25,6 +30,7 @@ public class Respawn : MonoBehaviour
         {
             deathSound.Play();  
             RespawnPlayer();
+            playerController.StartCoroutine("StunPlayer");
         }
     }
     /// <summary>

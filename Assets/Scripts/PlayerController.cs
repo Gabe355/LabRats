@@ -107,10 +107,12 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("GlueTrap"))
         {
             BaseSpeed();
+            Destroy(other.gameObject, 1f);
         }
         if (other.gameObject.CompareTag("GrabTrap"))
         {
-            BaseSpeed();    
+            BaseSpeed();
+            Destroy(other.gameObject, 1f);
         }
     }
     /// <summary>
