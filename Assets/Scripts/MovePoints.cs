@@ -31,3 +31,4 @@ public class MovePoints : MonoBehaviour
             speed * Time.deltaTime);
     }
 }
+        

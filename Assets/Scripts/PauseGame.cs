@@ -18,7 +18,7 @@ public class PauseGame : MonoBehaviour
     private bool isPaused;
     
     /// <summary>
-    /// does nothing yet
+    ///turns off pause menu 
     /// </summary>
     void Start()
     {
