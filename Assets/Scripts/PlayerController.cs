@@ -123,6 +123,11 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(StunPlayer());
         }
+        if (other.gameObject.CompareTag("RatPoison"))
+        {
+            StartCoroutine(StunPlayer());
+            Destroy(other.gameObject, 3f);
+        }
     }
     /// <summary>
     /// checks for when the player lands on a platform

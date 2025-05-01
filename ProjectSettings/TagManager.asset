@@ -9,6 +9,7 @@ TagManager:
   - GunTrap
   - FinishLine
   - RespawnPoint
+  - RatPoison
   layers:
   - Default
   - TransparentFX
