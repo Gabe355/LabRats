@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("RatPoison"))
         {
             StartCoroutine(StunPlayer());
-            Destroy(other.gameObject, 3f);
+            Destroy(other.gameObject);
         }
     }
     /// <summary>
